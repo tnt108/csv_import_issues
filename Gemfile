@@ -1,1 +1,1 @@
-gem "paperclip", "3.5.2"
+gem "paperclip", "~> 2.7"
