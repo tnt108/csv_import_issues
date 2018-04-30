@@ -10,9 +10,7 @@ class CsvImport
   define_model_callbacks :destroy, only: [:before, :after]
 
   has_attached_file :csv
-  validates_attachment :csv, :presence => {:message => "Oops! Please select a CSV file to import."},
-  :content_type => { :content_type => ['text/csv','text/comma-separated-values','application/csv','application/octet-stream'], :message => "Oops! Please upload a file with the extension of csv." },
-  :size => { :greater_than => 0.kilobytes, :message => 'Oops! This file has no data. Please upload a file with some data.' }
+  validates :csv, presence: true
 
   def initialize(attributes={})
      attributes.each{|name, value| send("#{name}=", value) } unless attributes.blank?
